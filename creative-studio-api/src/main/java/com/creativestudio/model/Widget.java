@@ -25,7 +25,7 @@ public class Widget {
 
     @Column(nullable = false)
     private String type;
-
+    private String name;
     private int x;
     private int y;
     private int width;
