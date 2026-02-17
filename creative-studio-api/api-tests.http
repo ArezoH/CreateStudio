@@ -1,0 +1,151 @@
+### ===========================
+### AUTH ENDPOINTS
+### ===========================
+@token = eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzcxMTUyMzE5LCJleHAiOjE3NzEyMzg3MTl9.s0s4n-NSOHsGurcWDHo_dk3bZPUe_E-xoWWGvSYOU_7_YoFW6TNU91w8Mrx-4XWo
+### Register a new user
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "email": "test@test.com",
+  "password": "password123"
+}
+
+### Login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "password123"
+}
+
+### ===========================
+### DASHBOARD ENDPOINTS
+### (Replace TOKEN with your JWT token)
+### (Replace DASHBOARD_ID with actual UUID)
+### ===========================
+
+### Get all dashboards
+GET http://localhost:8080/api/dashboards
+Authorization: Bearer {{token}}
+
+### Create a dashboard
+POST http://localhost:8080/api/dashboards
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "My First Dashboard"
+}
+
+### Get one dashboard
+GET http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357
+Authorization: Bearer {{token}}
+
+### Update dashboard name
+PUT http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Renamed Dashboard"
+}
+
+### Delete a dashboard
+DELETE http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357
+Authorization: Bearer {{token}}
+
+### ===========================
+### WIDGET ENDPOINTS
+### (Replace DASHBOARD_ID and WIDGET_ID)
+### ===========================
+
+### Get all widgets in a dashboard
+GET http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets
+Authorization: Bearer {{token}}
+
+### Create a Todo List widget
+POST http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": "todo-list",
+  "name": "Shopping List",
+  "x": 0,
+  "y": 0,
+  "width": 400,
+  "height": 400,
+  "data": {
+    "todos": []
+  }
+}
+
+### Create a Content Editor widget
+POST http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": "content-editor",
+  "name": "My Journal",
+  "x": 0,
+  "y": 0,
+  "width": 400,
+  "height": 400,
+  "data": {
+    "content": "<p>Start writing...</p>"
+  }
+}
+
+### Create a Quick Notes widget
+POST http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": "notes-widget",
+  "name": "Quick Notes",
+  "x": 0,
+  "y": 0,
+  "width": 400,
+  "height": 400,
+  "data": {
+    "content": "My quick note"
+  }
+}
+
+### Update a widget
+PUT http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets/fc4b87d4-af5f-4447-8eff-a943d63861d8
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "type": "todo-list",
+  "name": "Updated Shopping List",
+  "x": 100,
+  "y": 100,
+  "width": 400,
+  "height": 400,
+  "data": {
+    "todos": [
+      {"text": "Buy milk", "completed": false},
+      {"text": "Buy eggs", "completed": true}
+    ]
+  }
+}
+
+### Auto-save widget data (PATCH - only updates the data field)
+PATCH http://localhost:8080/api/dashboards/DASHBOARD_ID/widgets/fc4b87d4-af5f-4447-8eff-a943d63861d8/data
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "content": "<h1>Updated content</h1><p>Auto-saved from editor</p>"
+}
+
+### Delete a widget
+DELETE http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets/fc4b87d4-af5f-4447-8eff-a943d63861d8
+Authorization: Bearer {{token}}
