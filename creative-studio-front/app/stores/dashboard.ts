@@ -71,6 +71,22 @@ export const useDashboardStore = defineStore('dashboard', () => {
             isLoading.value = false
         }
     }
+    const updateDashboard = async (id: string, name: string) => {
+        try {
+            const updated = await api.put(`/dashboards/${id}`, { name }) as Dashboard
+            const index = dashboards.value.findIndex(d => d.id === id)
+            if (index !== -1) {
+                dashboards.value[index] = updated
+            }
+            if (currentDashboard.value?.id === id) {
+                currentDashboard.value = updated
+            }
+            return updated
+        } catch (e) {updateDashboard
+            console.error('Failed to update dashboard:', e)
+            throw e
+        }
+    }
 
     const deleteDashboard = async (id: string) => {
         try {
@@ -176,6 +192,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
         loadDashboards,
         createDashboard,
         loadDashboard,
+        updateDashboard,
         deleteDashboard,
         addWidget,
         updateWidget,

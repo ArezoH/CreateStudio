@@ -39,7 +39,7 @@ export const useAuthStore = defineStore('auth', () => {
             localStorage.setItem('token', response.token)
             localStorage.setItem('user', JSON.stringify(user.value))
         }
-        router.push('/dashboard')
+        router.push('/')
     }
 
     const login = async (email: string, password: string) => {
@@ -54,7 +54,7 @@ export const useAuthStore = defineStore('auth', () => {
             localStorage.setItem('token', response.token)
             localStorage.setItem('user', JSON.stringify(user.value))
         }
-        router.push('/dashboard')
+        router.push('/')
     }
 
     const logout = () => {

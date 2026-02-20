@@ -10,5 +10,23 @@ export default defineNuxtConfig({
             apiBase: 'http://localhost:8080/api'
         }
     },
+    ui: {
+        theme: {
+            colors: [
+                "primary",
+                "secondary",
+                "info",
+                "success",
+                "warning",
+                "error",
+                "neutral",
+            ],
+        },
+    },
     css: ['~/assets/css/main.css'],
+    routeRules: {
+        '/api/**': {
+            proxy: 'http://localhost:8080/api/**',
+        },
+    },
 })

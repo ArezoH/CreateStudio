@@ -1,7 +1,4 @@
 export const useApi = () => {
-    const config = useRuntimeConfig()
-    const apiBase = config.public.apiBase
-
     const getToken = () => {
         if (import.meta.client) {
             return localStorage.getItem('token')
@@ -21,7 +18,7 @@ export const useApi = () => {
             headers['Authorization'] = `Bearer ${token}`
         }
 
-        const response = await $fetch(`${apiBase}${url}`, {
+        const response = await $fetch(`/api${url}`, {
             ...options,
             headers,
         })
