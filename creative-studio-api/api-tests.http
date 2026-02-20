@@ -1,7 +1,7 @@
 ### ===========================
 ### AUTH ENDPOINTS
 ### ===========================
-@token = eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzcxMTUyMzE5LCJleHAiOjE3NzEyMzg3MTl9.s0s4n-NSOHsGurcWDHo_dk3bZPUe_E-xoWWGvSYOU_7_YoFW6TNU91w8Mrx-4XWo
+@token =eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzcxNjAxNjIzLCJleHAiOjE3NzE2ODgwMjN9.On_WjWVmXcZzXh6ZFzC6Jmo-XQtZSyPP2Nq2Vdy_3foBwvwVkACr7zhbfDT2EMcV
 ### Register a new user
 POST http://localhost:8080/api/auth/register
 Content-Type: application/json
