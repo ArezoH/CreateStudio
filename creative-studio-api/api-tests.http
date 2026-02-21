@@ -1,7 +1,7 @@
 ### ===========================
 ### AUTH ENDPOINTS
 ### ===========================
-@token =eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiaWF0IjoxNzcxNjAxNjIzLCJleHAiOjE3NzE2ODgwMjN9.On_WjWVmXcZzXh6ZFzC6Jmo-XQtZSyPP2Nq2Vdy_3foBwvwVkACr7zhbfDT2EMcV
+@token =eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhcmV6b0BhcmV6by5jb20iLCJpYXQiOjE3NzE2OTUxNjAsImV4cCI6MTc3MTc4MTU2MH0.CKF08rGFRc31JIH286U9xKcMWRpIKBA-iAsFvd9OmxZY_cjEaVFMGtxJHDq1u9UF
 ### Register a new user
 POST http://localhost:8080/api/auth/register
 Content-Type: application/json
@@ -17,8 +17,8 @@ POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "test@test.com",
-  "password": "password123"
+  "email": "arezo@arezo.com",
+  "password": "test4321"
 }
 
 ### ===========================
@@ -41,7 +41,7 @@ Authorization: Bearer {{token}}
 }
 
 ### Get one dashboard
-GET http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357
+GET http://localhost:8080/api/dashboards/ae2e57e9-559d-4180-80db-b1a1e61c3caf
 Authorization: Bearer {{token}}
 
 ### Update dashboard name
@@ -67,7 +67,7 @@ GET http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/wi
 Authorization: Bearer {{token}}
 
 ### Create a Todo List widget
-POST http://localhost:8080/api/dashboards/8f4a8e11-9a74-4963-930b-49e82dea5357/widgets
+POST http://localhost:8080/api/dashboards/ae2e57e9-559d-4180-80db-b1a1e61c3caf/widgets
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
