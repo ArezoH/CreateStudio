@@ -168,9 +168,3 @@ Already set in `nuxt.config.ts` — all `/api/**` requests forward to `http://lo
 | Content Editor | TipTap, formatting toolbar, auto-save (800ms debounce) |
 | Todo List | Add/complete/delete, filters (all/active/completed), progress bar |
 | Quick Notes | Plain text, line count, auto-save (600ms debounce) |
-
-### UX
-- Responsive: 1 col (mobile) → 2 col (tablet) → 3 col (desktop)
-- Loading spinners during API calls
-- Toast notifications for success/error
-- Optimistic updates for instant feedback
